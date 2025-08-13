@@ -192,9 +192,9 @@ static void titles_options_update(ui_view* view, void* data, linked_list* items,
         titles_options_add_entry(items, "Show game card", &listData->showGameCard);
         titles_options_add_entry(items, "Show SD", &listData->showSD);
         titles_options_add_entry(items, "Show NAND", &listData->showNAND);
-//        titles_options_add_entry(items, "Sort by ID", &listData->sortById);
-//        titles_options_add_entry(items, "Sort by name", &listData->sortByName);
-//        titles_options_add_entry(items, "Sort by size", &listData->sortBySize);
+        titles_options_add_entry(items, "Sort by ID", &listData->sortById);
+        titles_options_add_entry(items, "Sort by name", &listData->sortByName);
+        titles_options_add_entry(items, "Sort by size", &listData->sortBySize);
     }
 }
 
