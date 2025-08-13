@@ -175,6 +175,7 @@ static void titles_options_update(ui_view* view, void* data, linked_list* items,
 
             linked_list_iter iter;
             linked_list_iterate(items, &iter);
+
             while(linked_list_iter_has_next(&iter)) {
                 list_item* item = (list_item*) linked_list_iter_next(&iter);
 
@@ -191,9 +192,9 @@ static void titles_options_update(ui_view* view, void* data, linked_list* items,
         titles_options_add_entry(items, "Show game card", &listData->showGameCard);
         titles_options_add_entry(items, "Show SD", &listData->showSD);
         titles_options_add_entry(items, "Show NAND", &listData->showNAND);
-        titles_options_add_entry(items, "Sort by ID", &listData->sortById);
-        titles_options_add_entry(items, "Sort by name", &listData->sortByName);
-        titles_options_add_entry(items, "Sort by size", &listData->sortBySize);
+//        titles_options_add_entry(items, "Sort by ID", &listData->sortById);
+//        titles_options_add_entry(items, "Sort by name", &listData->sortByName);
+//        titles_options_add_entry(items, "Sort by size", &listData->sortBySize);
     }
 }
 
@@ -227,10 +228,10 @@ static void titles_update(ui_view* view, void* data, linked_list* items, list_it
 //        return;
 //    }
 
-//    if(hidKeysDown() & KEY_SELECT) {
-//        titles_options_open(listData);
-//        return;
-//    }
+    if(hidKeysDown() & KEY_SELECT) {
+        titles_options_open(listData);
+        return;
+    }
 
     if(!listData->populated || (hidKeysDown() & KEY_X)) {
         if(!listData->populateData.finished) {
@@ -337,10 +338,10 @@ void titles_open() {
 
     data->showGameCard = true;
     data->showSD = true;
-    data->showNAND = true;
+    data->showNAND = false;
     data->sortById = false;
     data->sortByName = true;
     data->sortBySize = false;
 
-    list_display("Titles", "A: Select, X: Refresh", data, titles_update, titles_draw_top);
+    list_display("Titles", "A: Select, X: Refresh, Select: Options", data, titles_update, titles_draw_top);
 }
