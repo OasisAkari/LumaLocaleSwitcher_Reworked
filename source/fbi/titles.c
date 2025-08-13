@@ -227,10 +227,10 @@ static void titles_update(ui_view* view, void* data, linked_list* items, list_it
 //        return;
 //    }
 
-    if(hidKeysDown() & KEY_SELECT) {
-        titles_options_open(listData);
-        return;
-    }
+//    if(hidKeysDown() & KEY_SELECT) {
+//        titles_options_open(listData);
+//        return;
+//    }
 
     if(!listData->populated || (hidKeysDown() & KEY_X)) {
         if(!listData->populateData.finished) {
@@ -342,5 +342,5 @@ void titles_open() {
     data->sortByName = true;
     data->sortBySize = false;
 
-    list_display("Titles", "A: Select, X: Refresh, Select: Options", data, titles_update, titles_draw_top);
+    list_display("Titles", "A: Select, X: Refresh", data, titles_update, titles_draw_top);
 }
