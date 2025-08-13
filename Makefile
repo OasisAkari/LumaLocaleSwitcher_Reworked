@@ -15,11 +15,11 @@ EXTRA_OUTPUT_FILES := servefiles
 
 BUILD_FLAGS := -Wno-format-truncation
 
-VERSION_PARTS := $(subst ., ,$(shell git describe --tags --abbrev=0))
+VERSION_PARTS := 0.0.7
 
 VERSION_MAJOR := 0
 VERSION_MINOR := 0
-VERSION_MICRO := 6
+VERSION_MICRO := 7
 
 DESCRIPTION := Locale Switcher
 AUTHOR := Rework By OasisAkari
